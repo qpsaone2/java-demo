@@ -74,13 +74,4 @@ jobs:
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DD7DBD63F5984DDBA02A227BC04DA39A }}
 
       - name: Restart Azure App Service
-        run: az webapp restart --name cheol-apps --resource-group cheol-rg
-
-
-
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          client-secret: ${{ secrets.AZURE_CLIENT_SECRET }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Restart Azure App Service
-        run: az webapp restart --name cheol-apps --resource-group cheol-rg
+        run: az webapp restart --name cheol-apps --resource-group cheol-rg  
