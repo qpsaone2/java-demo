@@ -60,4 +60,10 @@ jobs:
           app-name: 'cheol-apps'
           slot-name: 'Production'
           package: '*.jar'
-          
+
+      - name: Restart Azure App Service
+        uses: azure/cli@v1
+        with:
+          azcliversion: 2.0.72
+          inlineScript: |
+            az webapp restart --name cheol-apps --resource-group cheol-rg
