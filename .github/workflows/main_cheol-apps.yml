@@ -62,16 +62,16 @@ jobs:
           package: '*.jar'
 
 
+
   restart:
-    runs-on: ubuntu-latest  # Linux 환경에서 실행
+    runs-on: ubuntu-latest  # Azure CLI를 위해 Linux 환경 사용
     needs: deploy
     steps:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1E033EA326EB42148240CCD4E62EBCF2 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B3441A5C9C9241979E793A0B73D85108 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DD7DBD63F5984DDBA02A227BC04DA39A }}
+          creds: ${{ secrets.AZURE_CREDENTIALS }} # 서비스 주체 JSON 사용
+          enable-AzPSSession: false
 
       - name: Restart Azure App Service
         run: az webapp restart --name cheol-apps --resource-group cheol-rg
