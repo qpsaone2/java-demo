@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.*;
 public class DemoController {
     @GetMapping("/test")
     public String test() {
-        return "test demo22";
+        return "test demo333";
     }
 }
