@@ -47,10 +47,14 @@ jobs:
         with:
           name: java-app
            
-      - name: Check Azure CLI version
-        run: az version
 
-  
+      - name: Check Azure CLI version
+        run: |
+          # Print PATH to verify if Azure CLI is included
+          echo $Env:PATH
+          # Check the Azure CLI version to confirm it's accessible
+          az --version
+          
       - name: Login to Azure
         uses: azure/login@v2
         with:
