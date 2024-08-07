@@ -8,10 +8,10 @@ on:
 
 jobs:
   build:
-    # runs-on: windows-latest
-    runs-on: [self-hosted, Windows, x64]
-    env:
-      JAVA_HOME: C:\Program Files\java\microsoft-jdk-17.0.12-windows-x64\jdk-17.0.12+7
+    runs-on: windows-latest
+    # runs-on: [self-hosted, Windows, x64]
+    # env:
+    #   JAVA_HOME: C:\Program Files\java\microsoft-jdk-17.0.12-windows-x64\jdk-17.0.12+7
 
     steps:
       - uses: actions/checkout@v4
@@ -32,8 +32,8 @@ jobs:
           path: '${{ github.workspace }}/target/*.jar'
 
   deploy:
-    # runs-on: windows-latest
-    runs-on: [self-hosted, Windows, x64]
+    runs-on: windows-latest
+    # runs-on: [self-hosted, Windows, x64]
     needs: build
     environment:
       name: 'Production'
@@ -58,7 +58,8 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'cheol-apps'
+          # app-name: 'cheol-apps'
+          app-name: 'cheol-apps-stage'
           slot-name: 'Production'
           package: '*.jar'
           
