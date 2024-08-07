@@ -20,7 +20,7 @@ jobs:
           distribution: 'microsoft'
           cache: 'maven'
 
-      - name: Debug Info
+      - name: Debug Infomation
         run: |
           java -version
           mvn -version
