@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.*;
 public class DemoController {
     @GetMapping("/")
     public String test() {
-        return "testsdasdjhdsga";
+        return "tkg-tk-gscm-was";
     }
     @GetMapping("/test")
     public String test1() {
-        return "test demo333fffff";
+        return "sangcheol";
     }
 }
