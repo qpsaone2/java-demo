@@ -46,19 +46,6 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: java-app
-           
-      - name: Install Azure CLI
-        run: |
-          # Download and install Azure CLI
-          iex "& { $(irm https://aka.ms/installazurecliwindows -UseBasicP) }"
-            
-
-      - name: Check Azure CLI version
-        run: |
-          # Print PATH to verify if Azure CLI is included
-          echo $Env:PATH
-          # Check the Azure CLI version to confirm it's accessible
-          az --version
 
       - name: Login to Azure
         uses: azure/login@v2
