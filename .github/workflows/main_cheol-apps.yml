@@ -10,7 +10,9 @@ jobs:
   build:
     # runs-on: windows-latest
     runs-on: [self-hosted, Windows, x64]
-
+    env:
+      JAVA_HOME: /usr/lib/jvm/java-17-openjdk
+      
     steps:
       - uses: actions/checkout@v4
 
