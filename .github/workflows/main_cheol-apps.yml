@@ -1,4 +1,4 @@
-name: Build and deploy WAR app to Azure Web App - cheol-apps
+name: Build and deploy JAR app to Azure Web App - cheol-apps
 
 on:
   push:
@@ -18,9 +18,18 @@ jobs:
         with:
           java-version: '17'
           distribution: 'microsoft'
+          cache: 'maven'
+
+      - name: Debug Information
+        run: |
+          java -version
+          mvn -version
+          echo "Current directory: $pwd"
+          echo "Contents of current directory:"
+          Get-ChildItem
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install -X
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
@@ -58,20 +67,3 @@ jobs:
           slot-name: 'Production'
           package: '*.jar'
           
-  # restart:
-  #   runs-on: ubuntu-latest
-  #   needs: deploy
-  #   permissions:
-  #     id-token: write
-  #     contents: read # 추가적인 권한 설정
-
-  #   steps:
-  #     - name: Login to Azure
-  #       uses: azure/login@v2
-  #       with:
-  #         client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1E033EA326EB42148240CCD4E62EBCF2 }}
-  #         tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B3441A5C9C9241979E793A0B73D85108 }}
-  #         subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DD7DBD63F5984DDBA02A227BC04DA39A }}
-
-  #     - name: Restart Azure App Service
-  #       run: az webapp restart --name cheol-apps --resource-group cheol-rg
