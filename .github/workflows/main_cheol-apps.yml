@@ -63,5 +63,5 @@ jobs:
         uses: azure/webapps-deploy@v3
         with:
           app-name: 'my-app'  # Azure Web App의 실제 이름
-          slot-name: 'cheol-apps-stage'  # 배포할 슬롯의 이름
+          slot-name: 'cheol-apps-cheol-apps-stage'  # 배포할 슬롯의 이름
           package: '*.jar'  # 배포할 파일 패턴
