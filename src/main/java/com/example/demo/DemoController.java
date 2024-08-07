@@ -4,8 +4,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DemoController {
-    @GetMapping("/test")
+    @GetMapping("/")
     public String test() {
+        return "test";
+    }
+    @GetMapping("/test")
+    public String test1() {
         return "test demo333";
     }
 }
