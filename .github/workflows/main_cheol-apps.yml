@@ -9,20 +9,17 @@ on:
 jobs:
   build:
     runs-on: windows-latest
-    # runs-on: [self-hosted, Windows, x64]
-    # env:
-    #   JAVA_HOME: C:\Program Files\java\microsoft-jdk-17.0.12-windows-x64\jdk-17.0.12+7
 
     steps:
       - uses: actions/checkout@v4
 
-      # - name: Set up Java version
-      #   uses: actions/setup-java@v4
-      #   with:
-      #     java-version: '17'
-      #     distribution: 'microsoft'
+      - name: Set up Java version
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'microsoft'
 
-      - name: Build with Maven01
+      - name: Build with Maven
         run: mvn clean install
 
       - name: Upload artifact for deployment job
@@ -33,7 +30,6 @@ jobs:
 
   deploy:
     runs-on: windows-latest
-    # runs-on: [self-hosted, Windows, x64]
     needs: build
     environment:
       name: 'Production'
@@ -58,8 +54,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          # app-name: 'cheol-apps'
-          app-name: 'cheol-apps-stage'
+          app-name: 'cheol-apps'
           slot-name: 'Production'
           package: '*.jar'
           
