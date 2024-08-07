@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 public class DemoController {
     @GetMapping("/")
     public String test() {
-        return "jar-test";
+        return "java-demo-test";
     }
     @GetMapping("/test")
     public String test1() {
