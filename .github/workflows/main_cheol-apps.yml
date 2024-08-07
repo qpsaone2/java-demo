@@ -54,7 +54,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'cheol-apps'
+          app-name: 'cheol-apps-stage'
           slot-name: 'Production'
           package: '*.jar'
           
