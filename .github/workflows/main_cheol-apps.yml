@@ -20,7 +20,7 @@ jobs:
       #     java-version: '17'
       #     distribution: 'microsoft'
 
-      - name: Build with Maven
+      - name: Build with Maven01
         run: mvn clean install
 
       - name: Upload artifact for deployment job
